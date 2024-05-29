@@ -12,6 +12,7 @@
     <td>{{pizza.prezzo}}</td>
     <td>{{pizza.disponibile}}</td>
     <td>
+      <button (click)="addToCart(pizza)" class="btn btn-primary"> Carrello </button>
       <button [routerLink]="['/edit-pizza',pizza.id]" class="btn btn-warning"> Modifica </button>
       <button (click)="delete(pizza.id)" class="btn btn-danger"> Elimina </button>
     </td>

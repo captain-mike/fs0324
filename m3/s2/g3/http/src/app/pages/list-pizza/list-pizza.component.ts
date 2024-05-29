@@ -29,4 +29,8 @@ export class ListPizzaComponent {
       //qui inserisco operazioni di notifica all'utente per fargli capire che l'operazione è andata a buon fine
     })
   }
+
+  addToCart(pizza:iPizza){
+    this.pizzaSvc.addToCart(pizza)
+  }
 }

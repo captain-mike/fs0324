@@ -1,14 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { iPizza } from './Modules/ipizza';
-import { Observable } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PizzaService {
 
-  apiUrl:string = 'http://localhost:3000/pizze'
+  apiUrl:string = 'http://localhost:3000/pizze';
+
+  cartSubject = new Subject<iPizza>();//punto di ingresso dei dati
+  cart$ = this.cartSubject.asObservable()//punto di uscita
 
   constructor(private http:HttpClient) { }//ricorda di inserire la proprietà http nel constructor per poter effettuare le chiamate
 
@@ -33,6 +36,10 @@ export class PizzaService {
 
   delete(id:number):Observable<iPizza>{
     return this.http.delete<iPizza>(`${this.apiUrl}/${id}`)
+  }
+
+  addToCart(pizza:iPizza){
+      this.cartSubject.next(pizza)
   }
 
 }

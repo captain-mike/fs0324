@@ -16,8 +16,9 @@
           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Carrello
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="#">Action</a></li>
+          <ul class="dropdown-menu show">
+            <li (click)="removeFromCart(pizza)"
+             *ngFor="let pizza of carrelloPizze">{{pizza.gusto}}</li>
           </ul>
         </li>
       </ul>
