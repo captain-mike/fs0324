@@ -8,6 +8,8 @@ import { AddPizzaComponent } from './pages/add-pizza/add-pizza.component';
 import { EditPizzaComponent } from './pages/edit-pizza/edit-pizza.component';
 import { ListPizzaComponent } from './pages/list-pizza/list-pizza.component';
 import { NavbarComponent } from './main-components/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NavbarComponent } from './main-components/navbar/navbar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

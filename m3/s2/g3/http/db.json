@@ -1,10 +1,10 @@
 {
-  "pizze":[
+  "pizze": [
     {
-      "id":0,
-      "gusto":"Margherita",
-      "prezzo":5,
-      "disponibile":true
+      "disponibile": true,
+      "gusto": "Diavola",
+      "prezzo": 1,
+      "id": 1
     }
   ]
 }
