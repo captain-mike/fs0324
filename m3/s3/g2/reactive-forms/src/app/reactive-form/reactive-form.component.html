@@ -28,6 +28,10 @@
       <input type="email" formControlName="email"
       #email class="form-control" placeholder="La tua email">
       <span *ngIf="isTouchedInvalid('authData.email') ">Email mancante</span>
+      <span *ngIf="getMessage('authData.email') "><!--se si attiva la validazione per il campo e-mail, riceviamo un messaggio. Se presente questo viene mostrato-->
+        {{getMessage('authData.email')}}
+      </span>
+
     </div>
 
     <div class="form-group col-6">
@@ -36,6 +40,17 @@
     </div>
 
     <span *ngIf="isTouchedInvalid('authData') ">Dati non corretti</span>
+
+  </div>
+
+  <div formArrayName="sports">
+    <h5>Sport praticati</h5>
+    <button class="btn btn-warning" (click)="addSport()">Aggiungi Sport</button><!--Questo bottone aggiungerà un campo input all'array dei campi relativi agli sports-->
+
+    <!--ngFor si accorgerà dell'arrivo di un nuovo input e si occuperà di generarne il markup-->
+    <div class="form-group" *ngFor="let sport of getSports(); let i = index"><!--i ora ha un valore incrementale che parte da zero ed aumenta di 1 per ogni iterazione del ciclo-->
+      <input type="text" class="form-control" [formControlName]="i"><!--il valore di formControlName viene assegnato dinamicamente: 1 poi 2 poi 3 ecc..-->
+    </div>
 
   </div>
 
