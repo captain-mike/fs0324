@@ -1,0 +1,21 @@
+<table class="table">
+  <tr>
+    <th>#</th>
+    <th>Gusto</th>
+    <th>Prezzo</th>
+    <th>Disponibile</th>
+    <th>Azioni</th>
+  </tr>
+
+  <tr *ngFor="let pizza of pizze">
+    <td>{{pizza.id}}</td>
+    <td>{{pizza.gusto}}</td>
+    <td>{{pizza.prezzo}}</td>
+    <td>{{pizza.disponibile}}</td>
+    <td>
+      <button class="btn btn-danger">Elimina</button>
+      <button class="btn btn-warning">Modifica</button>
+      <button class="btn btn-info" (click)="toggleFavourite(pizza)">Preferito</button>
+    </td>
+  </tr>
+</table>
